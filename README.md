@@ -14,7 +14,7 @@
 | Column                        | Type       | Options                        |
 | ----------------------------- | ---------- | ------------------------------ |
 | name                          | string     | null: false                    |
-| category_id                   | integer    | null: false                    |
+| muscle_category_id            | integer    | null: false                    |
 | explanation                   | text       | null: false                    |
 | user                          | references | null: false, foreign_key: true |
 
