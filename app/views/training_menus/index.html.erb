@@ -1,1 +1,13 @@
+<%= render "shared/header" %>
 <h1>HELLO TRAINING</h1>
+<div class="contents row">
+  <% @training_menus.each do |menu| %>
+    <div class="">
+      <h2><%= menu.name%></h2>
+      <p><%= menu.muscle_category.name%></p>
+      <p><%= menu.explanation %></p>
+      </span>
+    </div>
+  <% end %>
+</div>
+<%= render "shared/footer" %>

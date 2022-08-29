@@ -9,10 +9,10 @@ class MuscleCategory < ActiveHash::Base
     { id: 7, name: '3頭' },
     { id: 8, name: '腹筋' },
     { id: 9, name: '僧帽筋' },
-    { id: 10, name: '全身、持久系' }
+    { id: 10, name: '全身、持久系' },
     { id: 11, name: 'その他' }
   ]
   include ActiveHash::Associations
   has_many :training_menus
-  
+
   end
