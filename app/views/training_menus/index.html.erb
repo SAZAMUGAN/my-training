@@ -3,6 +3,20 @@
 <div class="contents row">
   <% @training_menus.each do |menu| %>
     <div class="">
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '詳細', training_menu_path(menu.id), method: :get %>
+          </li>
+          <%# <li> %>
+            <%# <%= link_to '編集', edit_tweet_path(tweet.id), method: :get %>
+          <%# </li> %>
+          <%# <li> %>
+            <%# <%= link_to '削除', tweet_path(tweet.id), method: :delete %> 
+          <%# </li> %>
+        </ul>
+      </div>
       <h2><%= menu.name%></h2>
       <p><%= menu.muscle_category.name%></p>
       <p><%= menu.explanation %></p>
