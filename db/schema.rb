@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_29_104236) do
+ActiveRecord::Schema.define(version: 2022_08_29_162012) do
+
+  create_table "menu_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "date", null: false
+    t.integer "form_level_id", null: false
+    t.integer "weight"
+    t.integer "reps"
+    t.text "circuit_menus"
+    t.text "memo"
+    t.bigint "training_menu_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["training_menu_id"], name: "index_menu_records_on_training_menu_id"
+  end
 
   create_table "training_menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -35,5 +48,6 @@ ActiveRecord::Schema.define(version: 2022_08_29_104236) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "menu_records", "training_menus"
   add_foreign_key "training_menus", "users"
 end

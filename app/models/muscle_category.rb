@@ -15,4 +15,4 @@ class MuscleCategory < ActiveHash::Base
   include ActiveHash::Associations
   has_many :training_menus
 
-  end
+end
