@@ -20,7 +20,7 @@ class TrainingMenusController < ApplicationController
   end
 
   def show
-    # @menu_record = MenuRecord.new
+    @menu_records = MenuRecord.all
   end
 
 

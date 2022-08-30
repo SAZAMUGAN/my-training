@@ -1,5 +1,5 @@
 class MenuRecord < ApplicationRecord
-  belongs_to: training_menu
+  belongs_to :training_menu
 
 
   validates :date, presence: true
