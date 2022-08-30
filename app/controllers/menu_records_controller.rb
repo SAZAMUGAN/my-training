@@ -1,0 +1,2 @@
+class MenuRecordsController < ApplicationController
+end
