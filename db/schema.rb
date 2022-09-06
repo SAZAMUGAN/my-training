@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2022_08_29_162012) do
   create_table "menu_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date", null: false
     t.integer "form_level_id", null: false
-    t.integer "weight"
-    t.integer "reps"
+    t.float "weight"
+    t.float "reps"
     t.text "circuit_menus"
     t.text "memo"
     t.bigint "user_id", null: false

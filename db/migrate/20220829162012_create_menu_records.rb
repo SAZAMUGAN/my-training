@@ -3,8 +3,8 @@ class CreateMenuRecords < ActiveRecord::Migration[6.0]
     create_table :menu_records do |t|
       t.date :date, null: false
       t.integer :form_level_id, null: false
-      t.integer :weight
-      t.integer :reps
+      t.float :weight
+      t.float :reps
       t.text :circuit_menus
       t.text :memo
       t.references :user, null: false, foreign_key: true
