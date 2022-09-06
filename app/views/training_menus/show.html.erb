@@ -27,6 +27,9 @@
           </ul>
         </div>
         <h2><%= record.date%></h2>
+        <% unless record.weight == nil %>
+          <h2><%= record.weight %></h2>
+        <% end %>
         </span>
       </div>
     <% end %>

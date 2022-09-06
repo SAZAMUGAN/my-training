@@ -7,6 +7,7 @@ class CreateMenuRecords < ActiveRecord::Migration[6.0]
       t.integer :reps
       t.text :circuit_menus
       t.text :memo
+      t.references :user, null: false, foreign_key: true
       t.references :training_menu, null: false, foreign_key: true
       t.timestamps
     end

@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(version: 2022_08_29_162012) do
     t.integer "reps"
     t.text "circuit_menus"
     t.text "memo"
+    t.bigint "user_id", null: false
     t.bigint "training_menu_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["training_menu_id"], name: "index_menu_records_on_training_menu_id"
+    t.index ["user_id"], name: "index_menu_records_on_user_id"
   end
 
   create_table "training_menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -49,5 +51,6 @@ ActiveRecord::Schema.define(version: 2022_08_29_162012) do
   end
 
   add_foreign_key "menu_records", "training_menus"
+  add_foreign_key "menu_records", "users"
   add_foreign_key "training_menus", "users"
 end
