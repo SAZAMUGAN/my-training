@@ -1,5 +1,4 @@
-<header>
-</header>
+<%= render "shared/second_header" %>
 <div class="contents row">
   <div class="container">
     <h3><%= "#{@training_menu.name}の記録" %></h3>
@@ -18,6 +17,7 @@
       メニューの説明、補足（※よく見るように）
       <%= form.text_area :memo %>
       <%= form.submit "SEND" %>
+      <%=link_to 'トレーニングメニュー詳細ページもどる', training_menu_path(@training_menu), class:"back-btn" %>
     <% end %>
   </div>
 </div>

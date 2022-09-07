@@ -1081,4 +1081,15 @@ footer p {
   width: 60%;
 }
 
+.back-btn {
+  width: 35%;
+  text-align: center;
+  display: inline-block;
+  background-color: #aaa;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 15px;
+}
+
+
 
