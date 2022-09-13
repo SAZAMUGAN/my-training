@@ -31,9 +31,8 @@ RSpec.describe TrainingMenu, type: :model do
       it 'userが紐づいてなければ登録できない' do
         @training_menu.user = nil
         @training_menu.valid?
-        expect(@training_menu.errors.full_messages).to include("User must exist")
+        expect(@training_menu.errors.full_messages).to include('User must exist')
       end
-      
     end
   end
 end

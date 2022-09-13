@@ -26,15 +26,14 @@ RSpec.describe MenuRecord, type: :model do
       it 'userが紐づいてなければ登録できない' do
         @menu_record.user = nil
         @menu_record.valid?
-        expect(@menu_record.errors.full_messages).to include("User must exist")
+        expect(@menu_record.errors.full_messages).to include('User must exist')
       end
 
       it 'training_menuが紐づいてなければ登録できない' do
         @menu_record.training_menu = nil
         @menu_record.valid?
-        expect(@menu_record.errors.full_messages).to include("Training menu must exist")
+        expect(@menu_record.errors.full_messages).to include('Training menu must exist')
       end
-      
     end
   end
 end
