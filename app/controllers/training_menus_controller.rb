@@ -19,7 +19,7 @@ class TrainingMenusController < ApplicationController
   end
 
   def show
-    @menu_records = MenuRecord.all
+    @menu_records = MenuRecord.where(training_menu_id: params[:id])
   end
 
   private
