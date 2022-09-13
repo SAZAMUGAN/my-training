@@ -33,6 +33,7 @@
 | reps               | float      |                               |
 | circuit_menus      | text       |                               |
 | memo               | text       |                               |
+| user               | references | null:false, foreign_key: true |
 | training_menu      | references | null:false, foreign_key: true |
 
 ### Association

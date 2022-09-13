@@ -7,5 +7,5 @@ class FormLevel < ActiveHash::Base
     { id: 5, name: '4: 動作スピードをポジティブ1-4秒,ネガティブ2-5秒、フォームは最大限効かせ重視' }
   ]
   include ActiveHash::Associations
-  has_many :training_menus
+  has_many :menu_records
 end
