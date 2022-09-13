@@ -1,4 +1,6 @@
 class TrainingMenusController < ApplicationController
+  before_action :set_item, except: [:index, :new, :create]
+
   def index
     @training_menus = TrainingMenu.all
   end
@@ -15,10 +17,18 @@ class TrainingMenusController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @menu_records = MenuRecord.all
+  end
+
   private
 
   def training_menu_params
     params.require(:training_menu).permit(:name, :explanation, :muscle_category_id).merge(user_id: current_user.id)
   end
 
+  def set_item
+    @training_menu = TrainingMenu.find(params[:id])
+  end
 end

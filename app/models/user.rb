@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :training_menus
+  has_many :menu_records
 
   validates :nickname, presence: true
 end

@@ -1,0 +1,46 @@
+<%= render "shared/second_header" %>
+<div class="contents row">
+  <div class="content_post">
+    <div class="more">
+      <ul class="more_list">
+        <%# <li> %>
+          <%# <%= link_to '編集', edit_tweet_path(@tweet.id), method: :get %>
+        <%# </li> %>
+        <%# <li> %>
+          <%# <%= link_to '削除', tweet_path(@tweet.id), method: :delete %>
+        <%# </li> %>
+      </ul>
+    </div>
+    <h2><%= @training_menu.name %></h2>
+    <p><%= @training_menu.explanation %></p>
+    <span class="name"><%= @training_menu.muscle_category.name %>
+    </span>
+  </div>
+  <div class="contents row">
+    <% @menu_records.each do |record| %>
+      <div class="">
+        <div class="more">
+          <ul class="more_list">
+            <li>
+              <%= link_to '詳細', training_menu_menu_record_path(record.id), method: :get %>
+            </li>
+          </ul>
+        </div>
+        <h2><%= record.date%></h2>
+        <% unless record.weight == nil %>
+          <h2><%= record.weight %>kg（両手）</h2>
+        <% end %>
+        <% unless record.reps == nil %>
+          <h2><%= record.reps %>回 ※.の後に続く回数はチーティングの回数</h2>
+        <% end %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+  
+</div>
+<%= link_to( new_training_menu_menu_record_path(@training_menu.id), class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'> <%= @training_menu.name %>の記録へ </span>
+  <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
+<%= render "shared/footer" %>

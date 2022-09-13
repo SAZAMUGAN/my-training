@@ -29,10 +29,11 @@
 | ------------------ | ---------- | ----------------------------- |
 | date               | date       | null: false                   |
 | form_level_id      | integer    | null: false                   |
-| weight             | integer    |                               |
-| reps               | integer    |                               |
+| weight             | float      |                               |
+| reps               | float      |                               |
 | circuit_menus      | text       |                               |
 | memo               | text       |                               |
+| user               | references | null:false, foreign_key: true |
 | training_menu      | references | null:false, foreign_key: true |
 
 ### Association

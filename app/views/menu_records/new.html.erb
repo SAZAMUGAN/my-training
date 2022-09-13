@@ -1,0 +1,24 @@
+<%= render "shared/second_header" %>
+<div class="contents row">
+  <div class="container">
+    <h3><%= "#{@training_menu.name}の記録" %></h3>
+    <%= render 'shared/error_messages', model: @menu_record %>
+    <%= form_with(model: [@training_menu, @menu_record], local: true) do |form| %>
+      日付
+      <%= form.date_field :date %>
+      フォームレベル
+      <%= form.collection_select(:form_level_id, FormLevel.all, :id, :name, {}, {}) %>
+      重量（kg）※半角数字で入力 ※両手で持った時の重量
+      <%= form.text_field :weight %>
+      回数（回）※半角数字で入力 ※.の後に続く回数はチーティングの回数
+      <%= form.text_field :reps %>
+      サーキットメニュー
+      <%= form.text_field :circuit_menus %>
+      メニューの説明、補足（※よく見るように）
+      <%= form.text_area :memo %>
+      <%= form.submit "SEND" %>
+      <%=link_to 'トレーニングメニュー詳細ページもどる', training_menu_path(@training_menu), class:"back-btn" %>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer" %>
