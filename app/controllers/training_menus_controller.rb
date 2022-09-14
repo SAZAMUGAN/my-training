@@ -23,7 +23,15 @@ class TrainingMenusController < ApplicationController
   end
 
   def edit
-    
+
+  end
+
+  def update
+    if @training_menu.update(training_menu_params)
+      redirect_to training_menu_path(@training_menu.id)
+    else
+      render :edit
+    end
   end
 
   private
