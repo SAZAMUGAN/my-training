@@ -23,7 +23,6 @@ class TrainingMenusController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
