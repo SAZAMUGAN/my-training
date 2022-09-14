@@ -34,6 +34,11 @@ class TrainingMenusController < ApplicationController
     end
   end
 
+  def destroy
+    @training_menu.destroy
+    redirect_to root_path
+  end
+
   private
 
   def training_menu_params

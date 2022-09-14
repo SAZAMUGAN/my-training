@@ -1,7 +1,7 @@
 class TrainingMenu < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :muscle_category
-  has_many :menu_records
+  has_many :menu_records, dependent: :destroy
   belongs_to :user
 
   validates :name, :explanation, presence: true
