@@ -23,7 +23,6 @@ class TrainingMenusController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -32,6 +31,11 @@ class TrainingMenusController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @training_menu.destroy
+    redirect_to root_path
   end
 
   private

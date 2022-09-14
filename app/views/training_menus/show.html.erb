@@ -6,10 +6,10 @@
         <li>
           <%= link_to '編集', edit_training_menu_path(@training_menu.id), method: :get %>
         </li>
-        <%# <li> %>
-          <%# <%= link_to '削除', tweet_path(@tweet.id), method: :delete %>
-        <%# </li> %>
-      </ul>
+        <li>
+          <%= link_to '削除', training_menu_path(@training_menu.id), method: :delete, data: {confirm: "削除しますか？"} %>
+        </li>
+     </ul>
     </div>
     <h2><%= @training_menu.name %></h2>
     <p><%= @training_menu.explanation %></p>
