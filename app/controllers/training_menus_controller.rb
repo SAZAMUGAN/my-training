@@ -22,6 +22,10 @@ class TrainingMenusController < ApplicationController
     @menu_records = MenuRecord.where(training_menu_id: params[:id])
   end
 
+  def edit
+    
+  end
+
   private
 
   def training_menu_params
