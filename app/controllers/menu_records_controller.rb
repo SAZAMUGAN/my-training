@@ -1,6 +1,6 @@
 class MenuRecordsController < ApplicationController
-  before_action :set_training_menu, only: [:new, :show, :edit]
-  before_action :set_menu_record, only: [:show, :edit, :update]
+  before_action :set_training_menu, only: [:new, :show, :edit, :update, :destroy]
+  before_action :set_menu_record, only: [:show, :edit, :update, :destroy]
   def new
     @menu_record = MenuRecord.new
   end
@@ -24,11 +24,17 @@ class MenuRecordsController < ApplicationController
 
   def update
     if @menu_record.update(menu_record_params)
-      redirect_to training_menu_menu_record_path(@menu_record.id)
+      redirect_to training_menu_menu_record_path(@training_menu.id, @menu_record.id)
     else
       render :edit
     end
   end
+
+  def destroy
+    @menu_record.destroy
+    redirect_to training_menu_path(@training_menu.id)
+  end
+
 
   private
 

@@ -11,7 +11,7 @@
       メニューの説明、補足
       <%= form.text_area :explanation, rows: "10" %>
       <%= form.submit "SEND" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%=link_to 'もどる',  training_menu_path(@training_menu.id), class:"back-btn" %>
     <% end %>
   </div>
 </div>

@@ -17,7 +17,7 @@
       メニューの説明、補足（※よく見るように）
       <%= form.text_area :memo %>
       <%= form.submit "SEND" %>
-      <%=link_to 'トレーニングメニュー記録詳細ページもどる', training_menu_menu_record_path(@menu_record.id), class:"back-btn" %>
+      <%=link_to 'トレーニングメニュー記録詳細ページもどる', training_menu_menu_record_path(@training_menu.id, @menu_record.id), class:"back-btn" %>
     <% end %>
   </div>
 </div>

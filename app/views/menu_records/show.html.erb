@@ -4,11 +4,11 @@
     <div class="more">
       <ul class="more_list">
         <li>
-          <%= link_to '記録を編集', edit_training_menu_menu_record_path(@menu_record.id), method: :get %>
+          <%= link_to '記録を編集', edit_training_menu_menu_record_path(@training_menu.id, @menu_record.id), method: :get %>
         </li>
-        <%# <li> %>
-          <%# <%= link_to '削除', training_menu_path(@training_menu.id), method: :delete, data: {confirm: "削除しますか？"} %>
-        <%# </li> %>
+        <li>
+          <%= link_to '削除', training_menu_menu_record_path(@training_menu.id, @menu_record.id), method: :delete, data: {confirm: "削除しますか？"} %>
+        </li>
      </ul>
     </div>
     <h2><%= @menu_record.date %></h2>
