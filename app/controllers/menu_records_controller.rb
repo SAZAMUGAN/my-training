@@ -1,5 +1,5 @@
 class MenuRecordsController < ApplicationController
-  before_action :set_training_menu, only: [:new]
+  before_action :set_training_menu, only: [:new, :show]
   before_action :set_menu_record, only: [:show]
   def new
     @menu_record = MenuRecord.new

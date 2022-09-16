@@ -27,6 +27,7 @@
         <% unless @menu_record.memo == nil %>
           <h2><%= @menu_record.memo %></h2>
         <% end %>
+        <%=link_to 'もどる', training_menu_path(@training_menu.id), class:"back-btn" %>
   </div>
   
 </div>
