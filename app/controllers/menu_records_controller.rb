@@ -1,5 +1,6 @@
 class MenuRecordsController < ApplicationController
-  before_action :set_training_menu, only: :new
+  before_action :set_training_menu, only: [:new]
+  before_action :set_menu_record, only: [:show]
   def new
     @menu_record = MenuRecord.new
   end
@@ -13,10 +14,18 @@ class MenuRecordsController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   private
 
   def set_training_menu
     @training_menu = TrainingMenu.find(params[:training_menu_id])
+  end
+
+  def set_menu_record
+    @menu_record = MenuRecord.find(params[:id])
   end
 
   def menu_record_params
