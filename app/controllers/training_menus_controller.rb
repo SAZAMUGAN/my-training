@@ -19,7 +19,16 @@ class TrainingMenusController < ApplicationController
   end
 
   def show
-    @menu_records = MenuRecord.where(training_menu_id: params[:id])
+    @menu_records = MenuRecord.where(training_menu_id: params[:id]).order("date DESC")
+
+    weight_records = MenuRecord.where(training_menu_id: params[:id]).order("weight DESC")
+    @max_weight = weight_records.first
+    @max_weight_reps = weight_records.first
+    @max_reps = @menu_records.maximum('reps')
+
+    reps_records = MenuRecord.where(training_menu_id: params[:id]).order("reps DESC")
+    @max_reps = reps_records.first
+    @max_reps_weight = reps_records.first
   end
 
   def edit

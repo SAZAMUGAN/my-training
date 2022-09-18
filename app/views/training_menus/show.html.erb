@@ -17,6 +17,12 @@
     </span>
   </div>
   <div class="contents row">
+    <% unless  @max_weight == nil %>
+        <h1><%= "最高重量は#{@max_weight.weight}kg、その時の回数は#{@max_weight.reps}回" %></h1>
+    <% end %>
+    <% unless  @max_weight == nil %>
+      <h1><%= "最高回数は#{@max_reps.reps}回、その時の重量は#{@max_reps.weight}kg" %></h1>
+    <% end %>
     <% @menu_records.each do |record| %>
       <div class="">
         <div class="more">
