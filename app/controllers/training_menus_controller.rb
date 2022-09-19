@@ -1,5 +1,6 @@
 class TrainingMenusController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :search]
+  before_action :authenticate_user!, except:[:index]
 
   def index
     @training_menus = TrainingMenu.all
@@ -47,8 +48,11 @@ class TrainingMenusController < ApplicationController
     redirect_to root_path
   end
 
-  private
+  def search
+    @training_menus = TrainingMenu.search(params[:keyword])
+  end
 
+  private
   def training_menu_params
     params.require(:training_menu).permit(:name, :explanation, :muscle_category_id).merge(user_id: current_user.id)
   end
