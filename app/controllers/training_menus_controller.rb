@@ -1,6 +1,7 @@
 class TrainingMenusController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :search]
   before_action :authenticate_user!, except:[:index]
+  before_action :move_to_index, except: [:index]
 
   def index
     @training_menus = TrainingMenu.all
@@ -60,4 +61,11 @@ class TrainingMenusController < ApplicationController
   def set_item
     @training_menu = TrainingMenu.find(params[:id])
   end
+
+  def move_to_index
+    if user_signed_in? && current_user.id != @training_menu.user_id 
+      redirect_to action: :index
+    end
+  end
+
 end
