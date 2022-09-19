@@ -8,20 +8,22 @@
 <% end %>
 <div class="contents row">
   <% @training_menus.each do |menu| %>
-    <div class="">
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-        <ul class="more_list">
-          <li>
-            <%= link_to '詳細', training_menu_path(menu.id), method: :get %>
-          </li>
-        </ul>
+    <% if user_signed_in? && current_user.id == menu.user_id %>
+      <div class="">
+        <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+            <li>
+              <%= link_to '詳細', training_menu_path(menu.id), method: :get %>
+            </li>
+          </ul>
+        </div>
+        <h2><%= menu.name%></h2>
+        <p><%= menu.muscle_category.name%></p>
+        <p><%= menu.explanation %></p>
+        </span>
       </div>
-      <h2><%= menu.name%></h2>
-      <p><%= menu.muscle_category.name%></p>
-      <p><%= menu.explanation %></p>
-      </span>
-    </div>
+    <% end %>
   <% end %>
 </div>
 <%= render "shared/footer" %>
