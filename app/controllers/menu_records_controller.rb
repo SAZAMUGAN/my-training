@@ -1,6 +1,8 @@
 class MenuRecordsController < ApplicationController
   before_action :set_training_menu, only: [:new, :show, :edit, :update, :destroy]
   before_action :set_menu_record, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except:[:index]
+  
   def new
     @menu_record = MenuRecord.new
   end
