@@ -1,9 +1,9 @@
 class TrainingMenusController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :search]
   before_action :authenticate_user!, except:[:index]
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index, :new, :create]
 
-  
+
   def index
     @training_menus = TrainingMenu.all
   end
