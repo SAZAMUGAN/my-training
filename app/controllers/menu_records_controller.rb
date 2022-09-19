@@ -1,8 +1,9 @@
 class MenuRecordsController < ApplicationController
   before_action :set_training_menu, only: [:new, :show, :edit, :update, :destroy]
   before_action :set_menu_record, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except:[:index]
-  
+  before_action :authenticate_user!
+  before_action :move_to_index, except: :create 
+
   def new
     @menu_record = MenuRecord.new
   end
@@ -53,5 +54,11 @@ class MenuRecordsController < ApplicationController
     params.require(:menu_record).permit(:date, :form_level_id, :weight, :reps, :circuit_menus, :memo).merge(
       user_id: current_user.id, training_menu_id: @training_menu.id
     )
+  end
+
+  def move_to_index
+    if user_signed_in? && current_user.id != @training_menu.user_id 
+      redirect_to root_path
+    end
   end
 end

@@ -1,25 +1,29 @@
 <%= render "shared/header" %>
 <h1>HELLO TRAINING</h1>
-<%= form_with(url: search_training_menus_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: " トレーニングメニューを検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
+<% if user_signed_in? %>
+  <%= form_with(url: search_training_menus_path, local: true, method: :get, class: "search-form") do |form| %>
+    <%= form.text_field :keyword, placeholder: " トレーニングメニューを検索する", class: "search-input" %>
+    <%= form.submit "検索", class: "search-btn" %>
+  <% end %>
 <% end %>
 <div class="contents row">
   <% @training_menus.each do |menu| %>
-    <div class="">
-      <div class="more">
-        <span><%= image_tag 'arrow_top.png' %></span>
-        <ul class="more_list">
-          <li>
-            <%= link_to '詳細', training_menu_path(menu.id), method: :get %>
-          </li>
-        </ul>
+    <% if user_signed_in? && current_user.id == menu.user_id %>
+      <div class="">
+        <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+          <ul class="more_list">
+            <li>
+              <%= link_to '詳細', training_menu_path(menu.id), method: :get %>
+            </li>
+          </ul>
+        </div>
+        <h2><%= menu.name%></h2>
+        <p><%= menu.muscle_category.name%></p>
+        <p><%= menu.explanation %></p>
+        </span>
       </div>
-      <h2><%= menu.name%></h2>
-      <p><%= menu.muscle_category.name%></p>
-      <p><%= menu.explanation %></p>
-      </span>
-    </div>
+    <% end %>
   <% end %>
 </div>
 <%= render "shared/footer" %>
