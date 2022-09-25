@@ -995,7 +995,7 @@ form textarea {
 }
 
 form input[type="submit"] {
-  background-color: #57C3E9;
+  background-color: #0BA4C4;
   border-radius: 20px;
   color: #fff;
   border: 0;
@@ -1115,6 +1115,44 @@ footer p {
 
 .purchase-btn-icon {
   width: 60%;
+}
+
+.header-title{
+  display: inline-block;
+  font-size: 28px;
+}
+
+.content{
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+
+.content_item{
+  display: inline-block;
+  border-bottom: 1px dotted #aaa;
+  border-right: 1px dotted #000;
+}
+
+.content_detail{
+  padding: 5px;
+  border-bottom: 1px solid #aaa;
+}
+
+.default_message{
+  width: 70%;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+.default_message h1{
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.more_list{
+  background-color: #DFDFDF;
+  display: inline-block;
+  padding: 5px;
 }
 
 

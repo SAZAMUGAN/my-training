@@ -1,5 +1,9 @@
 <%= render "shared/header" %>
-<h1>HELLO TRAINING</h1>
+<% unless user_signed_in?  %>
+  <div class="default_message">
+    <h1>HELLO TRAINING</h1>
+  </div>
+<% end %>
 <% if user_signed_in? %>
   <%= form_with(url: search_training_menus_path, local: true, method: :get, class: "search-form") do |form| %>
     <%= form.text_field :keyword, placeholder: " トレーニングメニューを検索する", class: "search-input" %>
@@ -9,27 +13,28 @@
 <div class="contents row">
   <% @training_menus.each do |menu| %>
     <% if user_signed_in? && current_user.id == menu.user_id %>
-      <div class="">
+      <div class="content">
+        <div class="content_item" >メニュー名</div>
+          <div class="content_detail"><%= menu.name%></div>
+        <div class="content_item" >鍛えられる部位</div>
+          <div class="content_detail"><%= menu.muscle_category.name%></div>
+        <div class="content_item" >説明</div>
+          <div class="content_detail"><%= menu.explanation %></div>
         <div class="more">
-          <span><%= image_tag 'arrow_top.png' %></span>
           <ul class="more_list">
             <li>
-              <%= link_to '詳細', training_menu_path(menu.id), method: :get %>
+              <%= link_to '詳細へ', training_menu_path(menu.id), method: :get %>
             </li>
           </ul>
         </div>
-        <h2><%= menu.name%></h2>
-        <p><%= menu.muscle_category.name%></p>
-        <p><%= menu.explanation %></p>
-        </span>
       </div>
     <% end %>
   <% end %>
 </div>  
-
-<%= link_to(new_training_menu_path, class: 'purchase-btn') do %>
-  <span class='purchase-btn-text'>トレーニングメニューを投稿する</span>
-  <%= image_tag 'icon_dumbbell.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% if user_signed_in? %>
+  <%= link_to(new_training_menu_path, class: 'purchase-btn') do %>
+    <span class='purchase-btn-text'>トレーニングメニューを投稿する</span>
+    <%= image_tag 'icon_dumbbell.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
-
+<% end %>
 <%= render "shared/footer" %>
