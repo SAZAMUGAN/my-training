@@ -4,44 +4,68 @@
     <div class="more">
       <ul class="more_list">
         <li>
-          <%= link_to '編集', edit_training_menu_path(@training_menu.id), method: :get %>
+          <%= link_to 'メニューを編集', edit_training_menu_path(@training_menu.id), method: :get %>
         </li>
         <li>
-          <%= link_to '削除', training_menu_path(@training_menu.id), method: :delete, data: {confirm: "削除しますか？"} %>
+          <%= link_to 'メニューを削除', training_menu_path(@training_menu.id), method: :delete, data: {confirm: "削除しますか？"} %>
         </li>
      </ul>
     </div>
+    <div class="menu_name">
+    <div class="menu_block">メニュー名</div>
     <h2><%= @training_menu.name %></h2>
+    </div>
+    <div class="menu_explanation">
+    <div class="menu_block">解説等</div>
     <p><%= @training_menu.explanation %></p>
+    </div>
     <span class="name"><%= @training_menu.muscle_category.name %>
     </span>
   </div>
-  <div class="contents row">
+  <div class="contents">
+    
     <% unless  @max_weight == nil %>
-        <h1><%= "最高重量は#{@max_weight.weight}kg、その時の回数は#{@max_weight.reps}回" %></h1>
+        <h1 class="max-record"><%= "最高重量は#{@max_weight.weight}kg、その時の回数は#{@max_weight.reps}回" %></h1>
     <% end %>
     <% unless  @max_weight == nil %>
-      <h1><%= "最高回数は#{@max_reps.reps}回、その時の重量は#{@max_reps.weight}kg" %></h1>
+      <h1 class="max-record"><%= "最高回数は#{@max_reps.reps}回、その時の重量は#{@max_reps.weight}kg" %></h1>
     <% end %>
-    <% @menu_records.each do |record| %>
-      <div class="">
-        <div class="more">
-          <ul class="more_list">
-            <li>
-              <%= link_to 'トレーニング記録詳細へ', training_menu_menu_record_path(@training_menu.id, record.id), method: :get %>
-            </li>
-          </ul>
+    
+    <div class="contents row">
+      <% @menu_records.each do |record| %>
+        <div class="content">
+          <div class="content_item">
+            実施日
+          </div>
+          <div class="content_detail">
+            <%= record.date%>
+          </div>
+          <% unless record.weight == nil %>
+            <div class="content_item">
+              重量
+            </div>
+            <div class="content_detail">
+              <%= record.weight %>kg（両手）
+            </div>
+          <% end %>
+          <% unless record.reps == nil %>
+            <div class="content_item">
+              回数
+            </div>
+            <div class="content_detail">
+              <%= record.reps %>回 ※.の後に続く回数はチーティングの回数
+            </div>
+          <% end %>
+          <div class="more">
+            <ul class="more_list">
+              <li>
+                <%= link_to 'トレーニング記録詳細へ', training_menu_menu_record_path(@training_menu.id, record.id), method: :get %>
+              </li>
+            </ul>
+          </div>
         </div>
-        <h2><%= record.date%></h2>
-        <% unless record.weight == nil %>
-          <h2><%= record.weight %>kg（両手）</h2>
-        <% end %>
-        <% unless record.reps == nil %>
-          <h2><%= record.reps %>回 ※.の後に続く回数はチーティングの回数</h2>
-        <% end %>
-        </span>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
   
 </div>
