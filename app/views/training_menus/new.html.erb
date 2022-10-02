@@ -10,7 +10,7 @@
       <%= form.collection_select(:muscle_category_id, MuscleCategory.all, :id, :name, {}, {}) %>
       メニューの説明、補足
       <%= form.text_area :explanation, rows: "10" %>
-      <%= form.submit "SEND" %>
+      <%= form.submit "登録する" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     <% end %>
   </div>

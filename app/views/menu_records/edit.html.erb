@@ -16,7 +16,7 @@
       <%= form.text_field :circuit_menus %>
       メニューの説明、補足（※よく見るように）
       <%= form.text_area :memo %>
-      <%= form.submit "SEND" %>
+      <%= form.submit "更新する" %>
       <%=link_to 'トレーニングメニュー記録詳細ページもどる', training_menu_menu_record_path(@training_menu.id, @menu_record.id), class:"back-btn" %>
     <% end %>
   </div>
