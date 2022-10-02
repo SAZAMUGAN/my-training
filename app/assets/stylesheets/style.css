@@ -1200,5 +1200,12 @@ footer p {
   margin: 5px;
 }
 
-
+.header_right{
+  display: inline-block;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 2.5;
+  position: absolute;
+  right: 30px;
+}
 
