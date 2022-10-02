@@ -7,28 +7,51 @@
           <%= link_to '記録を編集', edit_training_menu_menu_record_path(@training_menu.id, @menu_record.id), method: :get %>
         </li>
         <li>
-          <%= link_to '削除', training_menu_menu_record_path(@training_menu.id, @menu_record.id), method: :delete, data: {confirm: "削除しますか？"} %>
+          <%= link_to '記録を削除', training_menu_menu_record_path(@training_menu.id, @menu_record.id), method: :delete, data: {confirm: "削除しますか？"} %>
         </li>
      </ul>
     </div>
-    <h2><%= @menu_record.date %></h2>
-    <h3><%= @menu_record.form_level.name %></h3>
+    <div class="record_date">
+      <div class="record_box">記録した日</div>
+      <h2><%= @menu_record.date %></h2>
+    </div>
+    <div class="form_level">
+      <div class="record_box">フォームレベル</div>
+      <p><%= @menu_record.form_level.name %></p>
+      <ul class="form_explanation">
+        <h3>フォームレベル一覧</h3>
+        <li>1: 完全に反動をつけて効かせることは殆ど、または全く意識しない。動作スピードも気にしない</li>
+        <li>2: 2と4の間。反動多少はつけてフォームは少し効かせ意識、スピードもあまり気にしない</li>
+        <li>3: 動作スピードはあまり意識しない、フォームは効かせ重視</li>
+        <li>4: 動作スピードをポジティブ1-4秒,ネガティブ2-5秒、フォームは最大限効かせ重視</li>
+      </ul>
+    </div>
+    <% unless @menu_record.weight == nil %>
+      <div class="record_weight">
+        <div class="record_box">重量</div>
+        <h3><%= @menu_record.weight %>kg（両手）</h3>
+      </div>
+    <% end %>
+    <% unless @menu_record.reps == nil %>
+      <div class="record_reps">
+        <div class="record_box">回数</div>
+        <h3><%= @menu_record.reps %>回 ※.の後に続く回数はチーティングの回数</h3>
+      </div>
+    <% end %>
+    <% unless @menu_record.circuit_menus == nil %>
+      <div class="record_circuit_menus">
+        <div class="record_box">サーキットメニュー</div>
+        <h3><%= @menu_record.circuit_menus %></h3>
+      </div>
+    <% end %>
+    <% unless @menu_record.memo == nil %>
+      <div class="record_memo">
+        <div class="record_box">メモ</div> 
+        <h3><%= @menu_record.memo %></h3>
+      </div>
+    <% end %>
+    
   </div>
-  <div class="contents row">
-        <% unless @menu_record.weight == nil %>
-          <h2><%= @menu_record.weight %>kg（両手）</h2>
-        <% end %>
-        <% unless @menu_record.reps == nil %>
-          <h2><%= @menu_record.reps %>回 ※.の後に続く回数はチーティングの回数</h2>
-        <% end %>
-        <% unless @menu_record.circuit_menus == nil %>
-          <h2><%= @menu_record.circuit_menus %></h2>
-        <% end %>
-        <% unless @menu_record.memo == nil %>
-          <h2><%= @menu_record.memo %></h2>
-        <% end %>
-        <%=link_to 'もどる', training_menu_path(@training_menu.id), class:"back-btn" %>
-  </div>
-  
+  <%=link_to 'もどる', training_menu_path(@training_menu.id), class:"back-btn" %>
 </div>
 <%= render "shared/footer" %>
