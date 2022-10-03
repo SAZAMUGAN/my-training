@@ -1,5 +1,6 @@
 <header class="header">
   <div class="header__bar row">
+    <h1 class="header-title">My Training</h1>
     <% if user_signed_in? %>
       <div class="user_nav grid-6">
         <span><%= current_user.nickname %>
@@ -9,9 +10,7 @@
           </li>
         </ul>
         </span>
-        <%= link_to "トレーニングメニューを投稿する", new_training_menu_path, class: "post"%>  
       </div>
-      
     <% else %>
     <div class="grid-6">
         <%= link_to "ログイン", new_user_session_path, class: "post" %>
