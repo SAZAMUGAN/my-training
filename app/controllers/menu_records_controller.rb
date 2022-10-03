@@ -2,7 +2,7 @@ class MenuRecordsController < ApplicationController
   before_action :set_training_menu, only: [:new, :show, :edit, :update, :destroy]
   before_action :set_menu_record, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :move_to_index, except: :create 
+  before_action :move_to_index, except: :create
 
   def new
     @menu_record = MenuRecord.new
@@ -18,11 +18,9 @@ class MenuRecordsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-    
   end
 
   def update
@@ -37,7 +35,6 @@ class MenuRecordsController < ApplicationController
     @menu_record.destroy
     redirect_to training_menu_path(@training_menu.id)
   end
-
 
   private
 
@@ -57,8 +54,6 @@ class MenuRecordsController < ApplicationController
   end
 
   def move_to_index
-    if user_signed_in? && current_user.id != @training_menu.user_id 
-      redirect_to root_path
-    end
+    redirect_to root_path if user_signed_in? && current_user.id != @training_menu.user_id
   end
 end
