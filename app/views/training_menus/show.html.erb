@@ -11,6 +11,19 @@
         </li>
      </ul>
     </div>
+    <% if @training_menu.images.attached? %>
+      <div class="menu_img">
+        <div class="menu_block">参考画像</div>
+        <%= image_tag @training_menu.images[0], class: 'menu-image'%> 
+        <div class="other-images">
+          <% @training_menu.images[1..-1].each do |image| %>
+            <div class="other-image">
+              <%= image_tag image %>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    <% end %>
     <div class="menu_name">
     <div class="menu_block">メニュー名</div>
     <h2><%= @training_menu.name %></h2>

@@ -18,6 +18,9 @@
           <div class="content_detail"><%= menu.name%></div>
         <div class="content_item" >鍛えられる部位</div>
           <div class="content_detail"><%= menu.muscle_category.name%></div>
+          <% if menu.images.attached? %>
+            <%= image_tag menu.images[0] %>
+          <% end %>
         <div class="content_item" >説明</div>
           <div class="content_detail"><%= menu.explanation %></div>
         <div class="more">

@@ -56,7 +56,7 @@ class TrainingMenusController < ApplicationController
   private
 
   def training_menu_params
-    params.require(:training_menu).permit(:name, :explanation, :muscle_category_id).merge(user_id: current_user.id)
+    params.require(:training_menu).permit(:name, :explanation, :muscle_category_id, {images: []}).merge(user_id: current_user.id)
   end
 
   def set_item

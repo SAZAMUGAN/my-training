@@ -1153,9 +1153,34 @@ footer p {
   padding: 3px;
 }
 
-.menu_name, .menu_explanation, .record_date, .form_level{
+.menu_img, .menu_name, .menu_explanation, .record_date, .form_level{
   padding: 5px;
   margin-bottom: 20px;
+}
+
+.preview-images img{
+  height: 200px;
+  width: 200px;
+}
+
+.menu-image{
+  display: block;  
+  height: 200px;
+  width: 200px;
+}
+
+.other-images {
+  display: flex;
+}
+
+.other-image {
+  margin-right: 10px;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
 }
 
 .menu_name h2, .record_date h2{
