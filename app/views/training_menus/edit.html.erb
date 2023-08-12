@@ -3,9 +3,18 @@
   <div class="container">
     <h3>トレーニングメニューを編集する</h3>
     <%= render 'shared/error_messages', model: @training_menu %>
-    <%= form_with(model: @training_menu, local: true) do |form| %>
+    <%= form_with(model: @training_menu, id: "training_menu", local: true) do |form| %>
       トレーニングメニューの名前
       <%= form.text_field :name%>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        トレーニング画像
+      </div>
+      <div id="previews" class="preview-images"  ></div>
+      <div class="click-upload">
+        <%= form.file_field :images, name: 'training_menu[images][]',  data: {index: 0}%>
+      </div>
+    </div>
       鍛えられるところ
       <%= form.collection_select(:muscle_category_id, MuscleCategory.all, :id, :name, {}, {}) %>
       メニューの説明、補足
